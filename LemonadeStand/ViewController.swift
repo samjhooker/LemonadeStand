@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     var kSeventh:CGFloat = 1.0/7.0
     
     var titleLabel:UILabel!
+    var moneyLabel:UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,44 +48,56 @@ class ViewController: UIViewController {
     
     func setUpContainerViews(){
         
+        self.view.backgroundColor = UIColor.lightGrayColor()
+        
         self.titleContainer = UIView(frame: CGRect(x: self.view.bounds.origin.x, y: self.view.bounds.origin.y, width: self.view.bounds.width, height: self.view.bounds.height * kEighth))
         self.titleContainer.backgroundColor = UIColor.yellowColor()
         self.view.addSubview(self.titleContainer)
         setUpTitleContainer()
         
         self.contentContainer1 = UIView(frame: CGRect(x: self.view.bounds.origin.x + 5, y: self.titleContainer.frame.height + 5, width: self.view.bounds.width * kHalf - 7, height: self.view.bounds.height * 3 * kEighth))
-        self.contentContainer1.backgroundColor = UIColor.lightGrayColor()
+        self.contentContainer1.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(self.contentContainer1)
         
         self.contentContainer2 = UIView(frame: CGRect(x: contentContainer1.frame.width + 10, y: self.titleContainer.frame.height + 5, width: self.view.bounds.width * kHalf - 7, height: self.view.bounds.height * 3 * kEighth))
-        self.contentContainer2.backgroundColor = UIColor.lightGrayColor()
+        self.contentContainer2.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(self.contentContainer2)
         
         self.contentContainer3 = UIView(frame: CGRect(x: self.view.bounds.origin.x + 5, y: self.contentContainer1.frame.height + 10 + titleContainer.frame.height, width: self.view.bounds.width * kHalf - 7, height: self.view.bounds.height * 3 * kEighth))
-        self.contentContainer3.backgroundColor = UIColor.lightGrayColor()
+        self.contentContainer3.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(self.contentContainer3)
         
         self.contentContainer4 = UIView(frame: CGRect(x: contentContainer1.frame.width + 10, y: self.contentContainer1.frame.height + 10 + titleContainer.frame.height, width: self.view.bounds.width * kHalf - 7, height: self.view.bounds.height * 3 * kEighth))
-        self.contentContainer4.backgroundColor = UIColor.lightGrayColor()
+        self.contentContainer4.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(self.contentContainer4)
         
-        self.moneyContainer = UIView(frame: CGRect(x: self.view.bounds.origin.x, y: self.contentContainer1.frame.height + 15 + titleContainer.frame.height + contentContainer3.frame.height, width: self.view.bounds.width * kThird, height: self.view.bounds.height * kEighth))
-        self.moneyContainer.backgroundColor = UIColor.darkGrayColor()
+        self.moneyContainer = UIView(frame: CGRect(x: self.view.bounds.origin.x, y: self.contentContainer1.frame.height + 15 + titleContainer.frame.height + contentContainer3.frame.height, width: self.view.bounds.width, height: self.view.bounds.height * kEighth))
+        self.moneyContainer.backgroundColor = UIColor.lightGrayColor()
         self.view.addSubview(self.moneyContainer)
+        setUpMoneyContainer()
         
-        self.startContainer = UIView(frame: CGRect(x: self.view.bounds.origin.x + moneyContainer.frame.width, y: self.contentContainer1.frame.height + 15 + titleContainer.frame.height + contentContainer3.frame.height, width: self.view.bounds.width * 2 * kThird, height: self.view.bounds.height * kEighth))
-        self.startContainer.backgroundColor = UIColor.yellowColor()
-        self.view.addSubview(self.startContainer)
     }
     
     
     func setUpTitleContainer(){
         titleLabel = UILabel()
         titleLabel.text = "Lemonade Stand"
-        titleLabel.font = UIFont(name: "AmericanTypewriter", size: 32)
+        titleLabel.font = UIFont(name: "robato", size: 40)
         titleLabel.sizeToFit()
         titleLabel.center = titleContainer.center
         titleContainer.addSubview(titleLabel)
+    }
+    
+    func setUpMoneyContainer(){
+        
+        moneyLabel = UILabel()
+        moneyLabel.text = "hello"
+        moneyLabel.textColor = UIColor.greenColor()
+        moneyLabel.font = UIFont(name: "AmericanTypewriter", size: 30)
+        moneyLabel.sizeToFit()
+        moneyLabel.center = moneyContainer.center
+        moneyContainer.addSubview(moneyLabel)
+        print("testin")
     }
 
 
