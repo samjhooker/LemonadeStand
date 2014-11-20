@@ -27,10 +27,21 @@ class ViewController: UIViewController {
     var kHalf:CGFloat = 1.0/2.0
     var kThird:CGFloat = 1.0/3.0
     var kSeventh:CGFloat = 1.0/7.0
+    var kNinth:CGFloat = 1.0/9.0
     
     var titleLabel:UILabel!
+    
     var moneyLabel:UILabel!
     var startDayButton:UIButton!
+    
+    var lemonLabel1:UILabel!
+    var iceLabel1:UILabel!
+    var titleLabel1:UILabel!
+    var lemonPlus1:UIButton!
+    var lemonMinus1:UIButton!
+    var icePlus1:UIButton!
+    var iceMinus1:UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +70,7 @@ class ViewController: UIViewController {
         self.contentContainer1 = UIView(frame: CGRect(x: self.view.bounds.origin.x + 5, y: self.titleContainer.frame.height + 5, width: self.view.bounds.width * kHalf - 7, height: self.view.bounds.height * 3 * kEighth))
         self.contentContainer1.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(self.contentContainer1)
+        setUpContentContainer1()
         
         self.contentContainer2 = UIView(frame: CGRect(x: contentContainer1.frame.width + 10, y: self.titleContainer.frame.height + 5, width: self.view.bounds.width * kHalf - 7, height: self.view.bounds.height * 3 * kEighth))
         self.contentContainer2.backgroundColor = UIColor.whiteColor()
@@ -115,8 +127,79 @@ class ViewController: UIViewController {
         startDayButton.layer.cornerRadius = 8
         startDayButton.addTarget(self, action: "startDayButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         moneyContainer.addSubview(startDayButton)
-        print("testin")
         
+    }
+    
+    func setUpContentContainer1(){
+        
+        titleLabel1 = UILabel()
+        titleLabel1.text = "Buy/Sell"
+        titleLabel1.font = UIFont(name: "Helvetica", size: 25)
+        titleLabel1.textColor = UIColor.orangeColor()
+        titleLabel1.sizeToFit()
+        self.titleLabel1.center = CGPoint(x: contentContainer1.frame.width * 0.5, y: contentContainer1.frame.height * kEighth)
+        self.titleLabel1.textAlignment = NSTextAlignment.Center
+        contentContainer1.addSubview(titleLabel1)
+        
+        lemonLabel1 = UILabel()
+        lemonLabel1.text = "lemons"
+        lemonLabel1.font = UIFont(name: "Helvetica", size: 20)
+        lemonLabel1.sizeToFit()
+        self.lemonLabel1.center = CGPoint(x: contentContainer1.frame.width * 0.5, y: contentContainer1.frame.height * 3 * kEighth)
+        self.lemonLabel1.textAlignment = NSTextAlignment.Center
+        contentContainer1.addSubview(lemonLabel1)
+        
+        iceLabel1 = UILabel()
+        iceLabel1.text = "ice"
+        iceLabel1.font = UIFont(name: "Helvetica", size: 20)
+        iceLabel1.sizeToFit()
+        self.iceLabel1.center = CGPoint(x: contentContainer1.frame.width * 0.5, y: contentContainer1.frame.height * 6 * kEighth)
+        self.iceLabel1.textAlignment = NSTextAlignment.Center
+        contentContainer1.addSubview(iceLabel1)
+        
+        lemonPlus1 = UIButton()
+        lemonPlus1.setTitle("+", forState: UIControlState.Normal)
+        lemonPlus1.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        lemonPlus1.backgroundColor = UIColor.orangeColor()
+        lemonPlus1.titleLabel?.font = UIFont(name: "Helvetica", size: 20)
+        lemonPlus1.sizeToFit()
+        lemonPlus1.center = CGPoint(x: contentContainer1.frame.width * 3 * kEighth, y: contentContainer1.frame.height * 4 * kEighth)
+        lemonPlus1.layer.cornerRadius = 15
+        lemonPlus1.addTarget(self, action: "startDayButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        contentContainer1.addSubview(lemonPlus1)
+        
+        icePlus1 = UIButton()
+        icePlus1.setTitle("+", forState: UIControlState.Normal)
+        icePlus1.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        icePlus1.backgroundColor = UIColor.orangeColor()
+        icePlus1.titleLabel?.font = UIFont(name: "Helvetica", size: 20)
+        icePlus1.sizeToFit()
+        icePlus1.center = CGPoint(x: contentContainer1.frame.width * 3 * kEighth, y: contentContainer1.frame.height * 7 * kEighth)
+        icePlus1.layer.cornerRadius = 15
+        icePlus1.addTarget(self, action: "startDayButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        contentContainer1.addSubview(icePlus1)
+        
+        lemonMinus1 = UIButton()
+        lemonMinus1.setTitle("-", forState: UIControlState.Normal)
+        lemonMinus1.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        lemonMinus1.backgroundColor = UIColor.orangeColor()
+        lemonMinus1.titleLabel?.font = UIFont(name: "Helvetica", size: 20)
+        lemonMinus1.sizeToFit()
+        lemonMinus1.center = CGPoint(x: contentContainer1.frame.width * 5 * kEighth, y: contentContainer1.frame.height * 4 * kEighth)
+        lemonMinus1.layer.cornerRadius = 15
+        lemonMinus1.addTarget(self, action: "startDayButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        contentContainer1.addSubview(lemonMinus1)
+        
+        iceMinus1 = UIButton()
+        iceMinus1.setTitle("-", forState: UIControlState.Normal)
+        iceMinus1.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        iceMinus1.backgroundColor = UIColor.orangeColor()
+        iceMinus1.titleLabel?.font = UIFont(name: "Helvetica", size: 20)
+        iceMinus1.sizeToFit()
+        iceMinus1.center = CGPoint(x: contentContainer1.frame.width * 5 * kEighth, y: contentContainer1.frame.height * 7 * kEighth)
+        iceMinus1.layer.cornerRadius = 15
+        iceMinus1.addTarget(self, action: "startDayButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        contentContainer1.addSubview(iceMinus1)
     }
     
     
