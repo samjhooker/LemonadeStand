@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     
     var titleLabel:UILabel!
     var moneyLabel:UILabel!
+    var startDayButton:UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,22 +83,27 @@ class ViewController: UIViewController {
     func setUpTitleContainer(){
         titleLabel = UILabel()
         titleLabel.text = "Lemonade Stand"
-        titleLabel.font = UIFont(name: "robato", size: 40)
+        titleLabel.font = UIFont(name: "Helvetica", size: 40)
         titleLabel.sizeToFit()
-        titleLabel.center = titleContainer.center
+        self.titleLabel.center = CGPoint(x: titleContainer.frame.width * 0.5, y: titleContainer.frame.height * (3/5))
+        self.titleLabel.textAlignment = NSTextAlignment.Center
         titleContainer.addSubview(titleLabel)
     }
     
     func setUpMoneyContainer(){
         
         moneyLabel = UILabel()
-        moneyLabel.text = "hello"
-        moneyLabel.textColor = UIColor.greenColor()
-        moneyLabel.font = UIFont(name: "AmericanTypewriter", size: 30)
+        moneyLabel.text = "$\(numberOfMoney)"
+        moneyLabel.textColor = UIColor.whiteColor()
+        moneyLabel.font = UIFont(name: "Helvetica", size: 30)
         moneyLabel.sizeToFit()
-        moneyLabel.center = moneyContainer.center
+        self.moneyLabel.center = CGPoint(x: titleContainer.frame.width * 1.5 * kEighth, y: titleContainer.frame.height * (2/5))
+        self.moneyLabel.textAlignment = NSTextAlignment.Center
         moneyContainer.addSubview(moneyLabel)
         print("testin")
+        
+        startDayButton = UIButton()
+        startDayButton.setTitle("Start Day", forState: UIControlState.norm)
     }
 
 
