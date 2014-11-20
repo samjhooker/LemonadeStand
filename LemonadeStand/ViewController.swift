@@ -89,6 +89,9 @@ class ViewController: UIViewController {
         self.titleLabel.textAlignment = NSTextAlignment.Center
         titleContainer.addSubview(titleLabel)
     }
+    func startDayButtonPressed(button:UIButton){
+        print("button Pressed")
+    }
     
     func setUpMoneyContainer(){
         
@@ -97,14 +100,26 @@ class ViewController: UIViewController {
         moneyLabel.textColor = UIColor.whiteColor()
         moneyLabel.font = UIFont(name: "Helvetica", size: 30)
         moneyLabel.sizeToFit()
-        self.moneyLabel.center = CGPoint(x: titleContainer.frame.width * 1.5 * kEighth, y: titleContainer.frame.height * (2/5))
+        self.moneyLabel.center = CGPoint(x: moneyContainer.frame.width * 2 * kEighth, y: moneyContainer.frame.height * (2/5))
         self.moneyLabel.textAlignment = NSTextAlignment.Center
         moneyContainer.addSubview(moneyLabel)
+        
+    
+        startDayButton = UIButton()
+        startDayButton.setTitle("Start Day", forState: UIControlState.Normal)
+        startDayButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        startDayButton.backgroundColor = UIColor.yellowColor()
+        startDayButton.titleLabel?.font = UIFont(name: "Helvetica", size: 40)
+        startDayButton.sizeToFit()
+        startDayButton.center = CGPoint(x: moneyContainer.frame.width * 6 * kEighth, y: moneyContainer.frame.height * 0.4)
+        startDayButton.layer.cornerRadius = 8
+        startDayButton.addTarget(self, action: "startDayButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        moneyContainer.addSubview(startDayButton)
         print("testin")
         
-        startDayButton = UIButton()
-        startDayButton.setTitle("Start Day", forState: UIControlState.norm)
     }
+    
+    
 
 
 }
